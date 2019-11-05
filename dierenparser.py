@@ -4,22 +4,16 @@ from dataclasses import dataclass
 @dataclass
 class Dier:
 
-    naam = ""
-    soort = ""
-    aantalPoten = 0
-    kleur = ""
-    geluid = ""
+    naam: str
+    soort: ""
+    aantalpoten: 0
+    kleur: ""
+    geluid: ""
 
 
 def parse_line(line):
     naam, soort, aantalpoten, kleur, geluid = line.split(' - ')
-    d = Dier()
-    d.naam = naam
-    d.soort = soort
-    d.aantalpoten = int(aantalpoten)
-    d.kleur = kleur
-    d.geluid = geluid
-    print(f'Parsed: [{naam}] [{soort}] [{aantalpoten}] [{kleur}] [{geluid}]')
+    d = Dier(naam, soort, int(aantalpoten), kleur, geluid)
     return d
 
 
@@ -37,4 +31,4 @@ if __name__ == '__main__':
         dieren = parse_text(f.read())
 
     for dier in dieren:
-        dier.print()
+        print(dier)
